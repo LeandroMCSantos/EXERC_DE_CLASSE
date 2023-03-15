@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Produto {
+  constructor(nome, preco) {
+    this.nome = nome;
+    this.preco = preco;
+  }
+
+  precoComTaxa() {
+    return this.preco;
+  }
+}
+
+class ProdutoImportado extends Produto {
+  constructor(nome, preco, taxa) {
+    super(nome, preco);
+    this.taxa = taxa;
+  }
+
+  precoComTaxa() {
+    return this.preco + this.taxa;
+  }
+}
+
+class ProdutoUsado extends Produto {
+  constructor(nome, preco, dataFabricacao) {
+    super(nome, preco);
+    this.dataFabricacao = dataFabricacao;
+  }
+
+  precoComTaxa() {
+    return this.preco * 0.9;
+  }
+}
+
+let produtos = [];
+
+const n = parseInt(prompt("Digite a quantidade de produtos: "));
+
+for (let i = 0; i < n; i++) {
+  const tipoProduto = prompt(`Produto ${i+1}: (1) normal, (2) importado, (3) usado`);
+  const nome = prompt("Digite o nome do produto: ");
+  const preco = parseFloat(prompt("Digite o preço do produto: "));
+
+  if (tipoProduto === "2") {
+    const taxa = parseFloat(prompt("Digite a taxa de alfândega: "));
+    produtos.push(new ProdutoImportado(nome, preco, taxa));
+  } else if (tipoProduto === "3") {
+    const dataFabricacao = prompt("Digite a data de fabricação do produto (dd/mm/yyyy): ");
+    produtos.push(new ProdutoUsado(nome, preco, dataFabricacao));
+  } else {
+    produtos.push(new Produto(nome, preco));
+  }
+}
+
+for (let produto of produtos) {
+  console.log(`Nome: ${produto.nome} | Preço com taxa: ${produto.precoComTaxa()}`);
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal {
+  constructor(nome, cor, ambiente, comprimento, velocidade, patas) {
+    this.nome = nome;
+    this.cor = cor;
+    this.ambiente = ambiente;
+    this.comprimento = comprimento;
+    this.velocidade = velocidade;
+    this.patas = patas;
+  }
+
+  alterarNome(nome) {
+    this.nome = nome;
+  }
+
+  alterarComprimento(comprimento) {
+    this.comprimento = comprimento;
+  }
+
+  alterarPatas(patas) {
+    this.patas = patas;
+  }
+
+  alterarCor(cor) {
+    this.cor = cor;
+  }
+
+  alterarAmbiente(ambiente) {
+    this.ambiente = ambiente;
+  }
+
+  alterarVelocidade(velocidade) {
+    this.velocidade = velocidade;
+  }
+
+  dados() {
+    console.log(`Nome: ${this.nome}`);
+    console.log(`Comprimento: ${this.comprimento} cm`);
+    console.log(`Número de patas: ${this.patas}`);
+    console.log(`Cor: ${this.cor}`);
+    console.log(`Ambiente: ${this.ambiente}`);
+    console.log(`Velocidade: ${this.velocidade} m/s`);
+  }
+}
+//CLASSE DE PEIXES
+class Peixe extends Animal {
+  constructor(nome, caracteristica, comprimento, velocidade) {
+    super(nome, "cinzenta", "mar", comprimento, velocidade, 0);
+    this.caracteristica = caracteristica;
+  }
+
+  alterarCaracteristica(caracteristica) {
+    this.caracteristica = caracteristica;
+  }
+
+  caracteristica() {
+    return this.caracteristica;
+  }
+
+  dados() {
+    console.log(`Nome: ${this.nome}`);
+    console.log(`Comprimento: ${this.comprimento} cm`);
+    console.log(`Número de patas: ${this.patas}`);
+    console.log(`Cor: ${this.cor}`);
+    console.log(`Ambiente: ${this.ambiente}`);
+    console.log(`Velocidade: ${this.velocidade} m/s`);
+    console.log(`Característica: ${this.caracteristica}`);
+  }
+}
+//CLASSE DE MAMIFEROS
+class Mamifero extends Animal {
+  constructor(nome, cor, alimento, comprimento, velocidade, patas) {
+    super(nome, cor, "terra", comprimento, velocidade, patas);
+    this.alimento = alimento;
+  }
+
+  alterarAlimento(alimento) {
+    this.alimento = alimento;
+  }
+
+  alimento() {
+    return this.alimento;
+  }
+
+  dados() {
+    console.log(`Nome: ${this.nome}`);
+    console.log(`Comprimento: ${this.comprimento} cm`);
+    console.log(`Número de patas: ${this.patas}`);
+    console.log(`Cor: ${this.cor}`);
+    console.log(`Ambiente: ${this.ambiente}`);
+    console.log(`Velocidade: ${this.velocidade} m/s`);
+    console.log(`Alimento: ${this.alimento}`);
+  }
+}
+    </script>
+</body>
+</html>
